@@ -1,0 +1,8 @@
+{
+    // makes git bash my main file but keeps the same compiler
+    // which allows us to auto open to the folder were in instead of trying to get to it
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.env.windows": {
+        "PATH": "C:\\Users\\cakau\\Desktop\\Code\\Raylib Compiler\\bin"
+    }
+}
