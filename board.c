@@ -1,6 +1,11 @@
 #include "main.h"
 
-void chessWindow() {
+void piecePosition() {
+
+}
+
+
+void initChessWindow() {
     int boardSize = 900;
     int tileSize = 100;
     int border = 50;
@@ -8,6 +13,9 @@ void chessWindow() {
     // where our board will be built
     int centerX = screenWidth/2 - boardSize/2;
     int centerY = screenHeight/2 - boardSize/2;
+
+    // initialize all pieces
+    piecePlacement();
 
     InitWindow(screenWidth, screenHeight, "Chess Board Window");
     SetTargetFPS(60);
@@ -36,4 +44,19 @@ void chessWindow() {
         EndDrawing();
     }
     CloseWindow();
+}
+
+void initPiece() {
+    Piece whitePieces[16];
+    for (int i = 0; i < 16; i++) {
+        if (i < 8) {
+            strcpy(whitePieces[i].pieceType, "p");
+            whitePieces[i].color = WHITE;
+
+            List* position;
+            position
+
+            whitePieces[i].position =  
+        }
+    }
 }
