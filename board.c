@@ -12,6 +12,7 @@ void initChessWindow() {
     // initialize all parts
     Tile board[64];
     Piece pieces[32];
+    Texture2D pieceTextures[12];
     initPieces(pieces, board);
 
     /* for checking pieces positions
@@ -21,7 +22,7 @@ void initChessWindow() {
     */
     
     InitWindow(screenWidth, screenHeight, "Chess Board Window");
-
+    loadPieceTextures(pieceTextures);
 
     SetTargetFPS(60);
 
@@ -49,5 +50,6 @@ void initChessWindow() {
         }
         EndDrawing();
     }
+    unloadPieceTextures(pieceTextures);
     CloseWindow();
 }

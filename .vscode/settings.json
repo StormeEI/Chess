@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "pieces.h": "c",
-        "raylib.h": "c"
+        "raylib.h": "c",
+        "stdlib.h": "c"
     },
     
     // Use Git Bash as the main terminal

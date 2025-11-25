@@ -70,3 +70,25 @@ int boardIndex(char file, char rank) {
     int rankIndex = rank - '1';
     return rankIndex * 8 + fileIndex;
 }
+
+void loadPieceTextures(Texture2D* pieceTextures) {
+    pieceTextures[WHITE_PAWN] = LoadTexture("assets/white-pawn.png");
+    pieceTextures[WHITE_ROOK] = LoadTexture("assets/white-rook.png");
+    pieceTextures[WHITE_KNIGHT] = LoadTexture("assets/white-knight.png");
+    pieceTextures[WHITE_BISHOP] = LoadTexture("assets/white-bishop.png");
+    pieceTextures[WHITE_QUEEN] = LoadTexture("assets/white-queen.png");
+    pieceTextures[WHITE_KING] = LoadTexture("assets/white-king.png");
+
+    pieceTextures[BLACK_PAWN] = LoadTexture("assets/black-pawn.png");
+    pieceTextures[BLACK_ROOK] = LoadTexture("assets/black-rook.png");
+    pieceTextures[BLACK_KNIGHT] = LoadTexture("assets/black-knight.png");
+    pieceTextures[BLACK_BISHOP] = LoadTexture("assets/black-bishop.png");
+    pieceTextures[BLACK_QUEEN] = LoadTexture("assets/black-queen.png");
+    pieceTextures[BLACK_KING] = LoadTexture("assets/black-king.png");
+}
+
+void unloadPieceTextures(Texture2D* pieceTextures) {
+    for (int i = 0; i < 12; i++) {
+        UnloadTexture(pieceTextures[i]);
+    }
+}
