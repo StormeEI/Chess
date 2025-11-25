@@ -16,6 +16,6 @@ typedef struct _PIECE {
 } Piece;
 
 void initPieces(Piece* pieces, Tile* board);
-// void updateWindow();
+int boardIndex(char file, char rank);
 
 #endif // PIECES_H_

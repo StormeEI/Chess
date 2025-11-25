@@ -10,10 +10,17 @@ void initChessWindow() {
     int centerY = screenHeight/2 - boardSize/2;
 
     // initialize all parts
-    InitWindow(screenWidth, screenHeight, "Chess Board Window");
     Tile board[64];
     Piece pieces[32];
     initPieces(pieces, board);
+
+    /* for checking pieces positions
+    for (int i = 0; i < 32; i++) {
+        printf("Piece: %d %c %s \n", i, pieces[i].pieceType,(pieces[i].tile)->tile);
+    }
+    */
+    
+    InitWindow(screenWidth, screenHeight, "Chess Board Window");
 
 
     SetTargetFPS(60);
@@ -35,6 +42,7 @@ void initChessWindow() {
                 int x = tileStartX + row * tileSize;
                 int y = tileStartY + col * tileSize;
 
+                // chooses color based on row
                 bool light = (row + col) % 2 == 0;
                 DrawRectangle(x, y, tileSize, tileSize, light ? WHITE : BLACK);
             }

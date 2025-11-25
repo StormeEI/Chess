@@ -2,5 +2,13 @@
     "files.associations": {
         "pieces.h": "c",
         "raylib.h": "c"
+    },
+    
+    // Use Git Bash as the main terminal
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+
+    // Add w64devkit to the PATH inside VS Code terminals
+    "terminal.integrated.env.windows": {
+        "PATH": "C:\\w64devkit\\w64devkit\\bin;${env:PATH}"
     }
 }
