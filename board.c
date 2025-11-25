@@ -1,10 +1,5 @@
 #include "main.h"
 
-void piecePosition() {
-
-}
-
-
 void initChessWindow() {
     int boardSize = 900;
     int tileSize = 100;
@@ -14,10 +9,13 @@ void initChessWindow() {
     int centerX = screenWidth/2 - boardSize/2;
     int centerY = screenHeight/2 - boardSize/2;
 
-    // initialize all pieces
-    piecePlacement();
-
+    // initialize all parts
     InitWindow(screenWidth, screenHeight, "Chess Board Window");
+    Tile board[64];
+    Piece pieces[32];
+    initPieces(pieces, board);
+
+
     SetTargetFPS(60);
 
     while (!WindowShouldClose()) {
@@ -44,19 +42,4 @@ void initChessWindow() {
         EndDrawing();
     }
     CloseWindow();
-}
-
-void initPiece() {
-    Piece whitePieces[16];
-    for (int i = 0; i < 16; i++) {
-        if (i < 8) {
-            strcpy(whitePieces[i].pieceType, "p");
-            whitePieces[i].color = WHITE;
-
-            List* position;
-            position
-
-            whitePieces[i].position =  
-        }
-    }
 }

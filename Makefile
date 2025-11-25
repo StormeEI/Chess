@@ -4,7 +4,7 @@ LDFLAGS = -L lib
 LDLIBS = -lraylib -lgdi32 -lwinmm
 
 TARGET = chess.exe
-SRC = main.c board.c
+SRC = main.c board.c pieces.c
 OBJ = $(SRC:.c=.o)
 
 

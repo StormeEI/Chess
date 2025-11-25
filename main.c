@@ -2,6 +2,6 @@
 #include "board.h"
 
 int main() {
-    chessWindow();
+    initChessWindow();
     return 0;
 }
