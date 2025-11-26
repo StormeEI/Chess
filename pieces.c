@@ -5,12 +5,16 @@ void initPieces(Piece* pieces, Tile* board, int startX, int startY, int tileSize
     for (int rank = '1'; rank <= '8'; rank++) {
         for (int file = 'a'; file <='h'; file++) {
             // gets us our position for each
-            int x = startX + (rank - '1') * tileSize - 14;
-            int y = startY + (file - 'a') * tileSize - 14;
 
-            // gives us our index for the board[]
-            int index = boardIndex(file, rank);
-
+            int fileIndex = file - 'a';
+            int rankIndex = rank - '1';
+            int index = rankIndex * 8 + fileIndex;
+            
+            int screenRow = rankIndex;
+            
+            int x = startX + fileIndex * tileSize - 14;
+            int y = startY + screenRow * tileSize - 14;
+    
             // gives us our string for strcpy
             char tile[3] = {file, rank, '\0'};
 
@@ -70,12 +74,6 @@ void initPieces(Piece* pieces, Tile* board, int startX, int startY, int tileSize
             board[i + 32].piece = &pieces[i];
         }
     }
-}
-
-int boardIndex(char file, char rank) {
-    int fileIndex = file - 'a';
-    int rankIndex = rank - '1';
-    return rankIndex * 8 + fileIndex;
 }
 
 void loadPieceTextures(Texture2D* pieceTextures) {

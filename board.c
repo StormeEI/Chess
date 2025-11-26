@@ -40,8 +40,8 @@ void initChessWindow() {
         for (int row = 0; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
 
-                int x = tileStartX + row * tileSize;
-                int y = tileStartY + col * tileSize;
+                int x = tileStartX + col * tileSize;
+                int y = tileStartY + row * tileSize;
 
                 // chooses color based on row
                 bool light = (row + col) % 2 == 0;
