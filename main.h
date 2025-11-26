@@ -9,6 +9,7 @@
 #include "board.h"
 #include "pieces.h"
 
+// constants and more constants
 #define screenWidth 1920
 #define screenHeight 1080
 

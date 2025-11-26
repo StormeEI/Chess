@@ -4,6 +4,8 @@
 // when a piece moves well need to deal with this
 typedef struct _TILE {
     char tile[3];
+    int positionX;
+    int positionY;
     struct _PIECE* piece;
 } Tile;
 
@@ -20,7 +22,7 @@ typedef enum {
     BLACK_QUEEN, BLACK_KING
 } PieceType;
 
-void initPieces(Piece* pieces, Tile* board);
+void initPieces(Piece* pieces, Tile* board, int startX, int startY, int tileSize);
 int boardIndex(char file, char rank);
 void loadPieceTextures(Texture2D* pieceTextures);
 void unloadPieceTextures(Texture2D* pieceTextures);

@@ -1,11 +1,11 @@
 #include "main.h"
 
-void initChessWindow() {
+void initChessWindow() { 
     int boardSize = 900;
     int tileSize = 100;
     int border = 50;
-
-    // where our board will be built
+    
+    // board start
     int centerX = screenWidth/2 - boardSize/2;
     int centerY = screenHeight/2 - boardSize/2;
 
@@ -13,7 +13,7 @@ void initChessWindow() {
     Tile board[64];
     Piece pieces[32];
     Texture2D pieceTextures[12];
-    initPieces(pieces, board);
+    initPieces(pieces, board, centerX + border, centerY + border, tileSize);
 
     /* for checking pieces positions
     for (int i = 0; i < 32; i++) {
@@ -31,7 +31,7 @@ void initChessWindow() {
         ClearBackground(LIGHTGRAY);
 
         // draws outer border
-        DrawRectangleLinesEx((Rectangle){ centerX, centerY, boardSize, boardSize }, border, BEIGE);
+        DrawRectangleLinesEx((Rectangle){ centerX, centerY, boardSize, boardSize }, border, BROWN); // beige maybe
 
         int tileStartX = centerX + border;
         int tileStartY = centerY + border;
@@ -45,9 +45,60 @@ void initChessWindow() {
 
                 // chooses color based on row
                 bool light = (row + col) % 2 == 0;
-                DrawRectangle(x, y, tileSize, tileSize, light ? WHITE : BLACK);
+                DrawRectangle(x, y, tileSize, tileSize, light ? WHITE : BROWN);
             }
         }
+
+        for (int i = 0; i < 64; i++) {
+            if (board[i].piece == NULL) {
+                continue;
+            } else {
+                switch (board[i].piece->pieceType) {
+                    // all white pieces
+                    case 'P':
+                        DrawTexture(pieceTextures[WHITE_PAWN], board[i].positionX, board[i].positionY, board[i].piece->color);
+                        break;
+                    case 'R':
+                        DrawTexture(pieceTextures[WHITE_ROOK], board[i].positionX, board[i].positionY, board[i].piece->color);
+                        break;
+                    case 'N':
+                        DrawTexture(pieceTextures[WHITE_KNIGHT], board[i].positionX, board[i].positionY, board[i].piece->color);
+                        break;
+                    case 'B':
+                        DrawTexture(pieceTextures[WHITE_BISHOP], board[i].positionX, board[i].positionY, board[i].piece->color);
+                        break;
+                    case 'Q':
+                        DrawTexture(pieceTextures[WHITE_QUEEN], board[i].positionX, board[i].positionY, board[i].piece->color);
+                        break;
+                    case 'K':
+                        DrawTexture(pieceTextures[WHITE_KING], board[i].positionX, board[i].positionY, board[i].piece->color);
+                        break;
+
+                    // all black pieces
+                    case 'p':
+                        DrawTexture(pieceTextures[BLACK_PAWN], board[i].positionX, board[i].positionY, board[i].piece->color);
+                        break;
+                    case 'r':
+                        DrawTexture(pieceTextures[BLACK_ROOK], board[i].positionX, board[i].positionY, board[i].piece->color);
+                        break;
+                    case 'n':
+                        DrawTexture(pieceTextures[BLACK_KNIGHT], board[i].positionX, board[i].positionY, board[i].piece->color);
+                        break;
+                    case 'b':
+                        DrawTexture(pieceTextures[BLACK_BISHOP], board[i].positionX, board[i].positionY, board[i].piece->color);
+                        break;
+                    case 'q':
+                        DrawTexture(pieceTextures[BLACK_QUEEN], board[i].positionX, board[i].positionY, board[i].piece->color);
+                        break;
+                    case 'k':
+                        DrawTexture(pieceTextures[BLACK_KING], board[i].positionX, board[i].positionY, board[i].piece->color);
+                        break;
+                }
+            }
+        }
+
+
+        // finish
         EndDrawing();
     }
     unloadPieceTextures(pieceTextures);

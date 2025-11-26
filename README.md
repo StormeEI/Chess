@@ -1,3 +1,3 @@
 Just a basic chess game
 
-Next thing we want is to place the pngs of the pieces on the board
+have now got the pieces drawn but i want to rotate the board

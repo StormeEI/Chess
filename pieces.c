@@ -1,17 +1,24 @@
 #include "main.h"
 
-void initPieces(Piece* pieces, Tile* board) {
+void initPieces(Piece* pieces, Tile* board, int startX, int startY, int tileSize) {
     // creates all the spaces for board
     for (int rank = '1'; rank <= '8'; rank++) {
         for (int file = 'a'; file <='h'; file++) {
+            // gets us our position for each
+            int x = startX + (rank - '1') * tileSize - 14;
+            int y = startY + (file - 'a') * tileSize - 14;
+
             // gives us our index for the board[]
             int index = boardIndex(file, rank);
 
             // gives us our string for strcpy
             char tile[3] = {file, rank, '\0'};
 
+            // sets everything we just got
             strcpy(board[index].tile, tile);
             board[index].piece = NULL;
+            board[index].positionX = x;
+            board[index].positionY = y;
         }
     }
 
@@ -25,18 +32,18 @@ void initPieces(Piece* pieces, Tile* board) {
     }
 
     // some white pieces
-    pieces[0].pieceType = 'r';
-    pieces[1].pieceType = 'n';
-    pieces[2].pieceType = 'b';
-    pieces[3].pieceType = 'q';
-    pieces[4].pieceType = 'k';
-    pieces[5].pieceType = 'b';
-    pieces[6].pieceType = 'n';
-    pieces[7].pieceType = 'r';
+    pieces[0].pieceType = 'R';
+    pieces[1].pieceType = 'N';
+    pieces[2].pieceType = 'B';
+    pieces[3].pieceType = 'Q';
+    pieces[4].pieceType = 'K';
+    pieces[5].pieceType = 'B';
+    pieces[6].pieceType = 'N';
+    pieces[7].pieceType = 'R';
 
     // white pawns
     for (int i = 8; i < 16; i++) {
-        pieces[i].pieceType = 'p';
+        pieces[i].pieceType = 'P';
     }
 
     // black pawns
